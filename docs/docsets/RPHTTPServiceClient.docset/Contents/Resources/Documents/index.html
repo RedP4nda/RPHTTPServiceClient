@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>RPHTTPServiceClient  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="RPHTTPServiceClient  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          RPHTTPServiceClient Docs
+        </a>
+         (100% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/RedP4nda/RPHTTPServiceClient">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">RPHTTPServiceClient Reference</a>
+      <img class="carat" src="img/carat.png" />
+      RPHTTPServiceClient  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/RPServiceClient.html">RPServiceClient</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/RPServiceClientError.html">RPServiceClientError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/ErrorResult.html">ErrorResult</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            
+            <h1 id='rphttpserviceclient' class='heading'>RPHTTPServiceClient</h1>
+
+<p><a href="https://travis-ci.org/RedP4nda/RPHTTPServiceClient"><img src="https://travis-ci.org/RedP4nda/RPHTTPServiceClient.svg?branch=master" alt="Build Status"></a>
+<a href="http://twitter.com/Florian_MrCloud"><img src="https://img.shields.io/badge/twitter-@Florian_MrCloud-blue.svg?style=flat" alt="Twitter"></a></p>
+<h1 id='disclaimer' class='heading'>Disclaimer:</h1>
+
+<ul>
+<li>This program is still under active development and in its early stage, consider that breaking changes and rewrites could occur before using it in a stable version.</li>
+</ul>
+
+<p>RPHTTPServiceClient is a Type-safe JSON/HTTP client for iOS.</p>
+
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#the-basics">The Basics</a></li>
+<li><a href="#projects-using-RPHTTPServiceClient">Projects using RPHTTPServiceClient</a></li>
+<li><a href="#to-do">To Do</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#installation">Installation</a></li>
+</ul>
+<h1 id='features' class='heading'>Features:</h1>
+<h1 id='the-basics' class='heading'>The Basics</h1>
+
+<p>RPHTTPServiceClient turns your JSON/HTTP API into a swift enum (built upon <a href="https://github.com/Moya/Moya">Moya</a>)</p>
+<pre class="highlight swift"><code><span class="c1">// Github public API</span>
+<span class="kd">enum</span> <span class="kt">UserServiceAPI</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nf">getUserInfos</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span>
+    <span class="k">case</span> <span class="nf">getUserRepos</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// MARK: - TargetType Protocol Implementation</span>
+<span class="kd">extension</span> <span class="kt">UserServiceAPI</span> <span class="p">:</span> <span class="kt">TargetType</span> <span class="p">{</span>
+
+    <span class="k">var</span> <span class="nv">baseURL</span><span class="p">:</span> <span class="kt">URL</span> <span class="p">{</span> <span class="k">return</span> <span class="kt">URL</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"https://api.github.com"</span><span class="p">)</span><span class="o">!</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="k">self</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">getUserInfos</span><span class="p">(</span><span class="k">let</span> <span class="nv">username</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s">"/users/</span><span class="se">\(</span><span class="n">username</span><span class="se">)</span><span class="s">"</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nf">getUserRepos</span><span class="p">(</span><span class="k">let</span> <span class="nv">username</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s">"/users/</span><span class="se">\(</span><span class="n">username</span><span class="se">)</span><span class="s">/repos"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="o">...</span>
+</code></pre>
+
+<p>Check <a href="https://github.com/RedP4nda/RPHTTPServiceClient/blob/master/Example/RPHTTPServiceClient/Modules/User/Service/UserServiceAPI.swift">UserServiceAPI.swift</a> for more infos</p>
+
+<p>RPHTTPServiceClient uses <a href="https://github.com/Hearst-DD/ObjectMapper">ObjectMapper</a> in order to safely map your HTTP API calls into objects.</p>
+
+<p>Consider the following <a href="">User</a> Model:</p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">User</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">Mappable</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">login</span> <span class="p">:</span> <span class="kt">String</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">id</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">?</span>
+    <span class="k">var</span> <span class="nv">avatar_url</span> <span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+    <span class="k">var</span> <span class="nv">gravatar_id</span> <span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+    <span class="k">var</span> <span class="nv">url</span> <span class="p">:</span> <span class="kt">String</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">html_url</span> <span class="p">:</span> <span class="kt">String</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">repos_url</span> <span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+    <span class="k">var</span> <span class="nv">type</span> <span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+    <span class="k">var</span> <span class="nv">name</span> <span class="p">:</span> <span class="kt">String</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">company</span> <span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+    <span class="k">var</span> <span class="nv">blog</span> <span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+    <span class="k">var</span> <span class="nv">location</span> <span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+    <span class="k">var</span> <span class="nv">email</span> <span class="p">:</span> <span class="kt">String</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">bio</span> <span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+    <span class="k">var</span> <span class="nv">public_repos</span> <span class="p">:</span> <span class="kt">Int</span><span class="o">!</span>
+    <span class="k">var</span> <span class="nv">public_gists</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">?</span>
+    <span class="k">var</span> <span class="nv">followers</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">?</span>
+    <span class="k">var</span> <span class="nv">following</span> <span class="p">:</span> <span class="kt">Int</span><span class="p">?</span>
+    <span class="k">var</span> <span class="nv">created_at</span> <span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+    <span class="k">var</span> <span class="nv">updated_at</span> <span class="p">:</span> <span class="kt">String</span><span class="p">?</span>
+
+    <span class="kd">required</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">map</span><span class="p">:</span> <span class="kt">Map</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">mapping</span><span class="p">(</span><span class="nv">map</span><span class="p">:</span> <span class="kt">Map</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">login</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"login"</span><span class="p">]</span>
+        <span class="n">id</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"id"</span><span class="p">]</span>
+        <span class="n">avatar_url</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"avatar_url"</span><span class="p">]</span>
+        <span class="n">gravatar_id</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"gravatar_id"</span><span class="p">]</span>
+        <span class="n">url</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"url"</span><span class="p">]</span>
+        <span class="n">html_url</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"html_url"</span><span class="p">]</span>
+        <span class="n">repos_url</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"repos_url"</span><span class="p">]</span>
+        <span class="n">type</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"type"</span><span class="p">]</span>
+        <span class="n">name</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"name"</span><span class="p">]</span>
+        <span class="n">company</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"company"</span><span class="p">]</span>
+        <span class="n">blog</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"blog"</span><span class="p">]</span>
+        <span class="n">location</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"location"</span><span class="p">]</span>
+        <span class="n">email</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"email"</span><span class="p">]</span>
+        <span class="n">bio</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"bio"</span><span class="p">]</span>
+        <span class="n">public_repos</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"public_repos"</span><span class="p">]</span>
+        <span class="n">public_gists</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"public_gists"</span><span class="p">]</span>
+        <span class="n">followers</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"followers"</span><span class="p">]</span>
+        <span class="n">following</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"following"</span><span class="p">]</span>
+        <span class="n">created_at</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"created_at"</span><span class="p">]</span>
+        <span class="n">updated_at</span> <span class="o">&lt;-</span> <span class="n">map</span><span class="p">[</span><span class="s">"updated_at"</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Once your class implements <code>Mappable</code>, ObjectMapper allows you to easily convert to and from JSON.</p>
+
+<p>Next you&rsquo;ll want to subclass <code>RPMoyaServiceClient</code> in order to automagically perform API calls and object mapping:</p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">UserService</span><span class="p">:</span> <span class="kt">RPMoyaServiceClient</span><span class="o">&lt;</span><span class="kt">UserServiceAPI</span><span class="o">&gt;</span> <span class="p">{</span>
+
+    <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">provider</span> <span class="o">=</span> <span class="kt">MoyaProvider</span><span class="o">&lt;</span><span class="kt">UserServiceAPI</span><span class="o">&gt;</span><span class="p">()</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">provider</span><span class="p">:</span> <span class="n">provider</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">fetchUser</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">User</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">error</span><span class="p">:</span> <span class="p">(</span><span class="kt">Swift</span><span class="o">.</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Cancellable</span> <span class="p">{</span>
+
+        <span class="k">let</span> <span class="nv">target</span> <span class="o">=</span> <span class="kt">UserServiceAPI</span><span class="o">.</span><span class="nf">getUserInfos</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="n">username</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">super</span><span class="o">.</span><span class="nf">requestObject</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="n">success</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>The <code>RPMoyaServiceClient.swift</code> class provides the required methods to perform the mapping actions
+and return a single mapped object or an array of mapped objects</p>
+<pre class="highlight swift"><code><span class="c1">// request and map a JSON String to a single object implementing ObjectMapper's Mappable Protocol</span>
+<span class="n">open</span> <span class="kd">func</span> <span class="n">requestObject</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Mappable</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="kt">Target</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">result</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">MoyaNetworkClientError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Cancellable</span>
+<span class="c1">// request and map a JSON String to an array of objects implementing ObjectMapper's Mappable Protocol</span>
+<span class="n">open</span> <span class="kd">func</span> <span class="n">requestArray</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Mappable</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="kt">Target</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">result</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">MoyaNetworkClientError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Cancellable</span>
+</code></pre>
+
+<p><code>RPMoyaServiceClient.swift</code> API calls have a Cancellable return type, meaning you can use the returned
+value of these calls to handle cancellation of requests</p>
+
+<p><code>RPMoyaServiceClient.swift</code> also automatically handle http status codes and return the appropriate
+result of your request, be it the requested resource, a network error, or even an appropriate
+JSON-wrapped error mapped into an object if this is what your API is serving.</p>
+
+<p>For more details check out <a href="https://github.com/RedP4nda/RPHTTPServiceClient/blob/master/RPHTTPServiceClient/Classes/RPMoyaServiceClient.swift">RPMoyaServiceClient.swift</a> implementation along with <a href="https://github.com/RedP4nda/RPHTTPServiceClient/blob/master/RPHTTPServiceClient/Classes/ErrorResult.swift">ErrorResult.swift</a> and <a href="https://github.com/RedP4nda/RPHTTPServiceClient/blob/master/RPHTTPServiceClient/Classes/MoyaNetworkClientError.swift">MoyaNetworkClientError.swift</a></p>
+<h1 id='projects-using-rphttpserviceclient' class='heading'>Projects using RPHTTPServiceClient</h1>
+
+<p>-</p>
+
+<p>If you have a project that utilizes, extends or provides tooling for RPHTTPServiceClient, please submit a PR with a link to your project in this section of the README.</p>
+<h1 id='to-do' class='heading'>To Do</h1>
+<h2 id='improve-error-handling-perhaps-using-code-throws-code' class='heading'>- Improve error handling. Perhaps using <code>throws</code></h2>
+<h1 id='installation' class='heading'>Installation</h1>
+<h3 id='cocoapods' class='heading'>Cocoapods</h3>
+
+<p>RPHTTPServiceClient can be added to your project using <a href="http://cocoapods.org">CocoaPods</a> by adding the following lines to your <code>Podfile</code>:</p>
+<pre class="highlight ruby"><code>
+<span class="n">pod</span> <span class="s1">'RPHTTPServiceClient'</span><span class="p">,</span> <span class="s1">'~&gt; 0.9'</span>
+</code></pre>
+<h1 id='contributing' class='heading'>Contributing</h1>
+
+<p>Contributions are very welcome 👍😃.</p>
+
+<p>Before submitting any pull request, please ensure you have run the included tests and they have passed. If you are including new functionality, please write test cases for it as well.</p>
+<h2 id='contributors' class='heading'>Contributors</h2>
+
+<p><a href="https://github.com/MrCloud"><img src="https://avatars2.githubusercontent.com/u/486140?s=100" alt="MrCloud"></a></p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2017 <a class="link" href="https://github.com/RedP4nda" target="_blank" rel="external">MrCloud</a>. All rights reserved. (Last updated: 2017-06-13)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

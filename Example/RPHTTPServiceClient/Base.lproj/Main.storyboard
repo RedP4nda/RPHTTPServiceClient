@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--User View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="UserViewController" customModule="PiOSNetworkClient_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEQ-mY-NEz">
+                                <rect key="frame" x="16" y="150" width="343" height="30"/>
+                                <state key="normal" title="Fetch Infos"/>
+                                <connections>
+                                    <action selector="fetchInfosTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="y4u-X6-2Dh"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZIx-VQ-UQq">
+                                <rect key="frame" x="16" y="95" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="FTN-dl-AyW"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGZ-B4-OJ9">
+                                <rect key="frame" x="16" y="188" width="343" height="81.5"/>
+                                <string key="text">Infos
+-
+-
+-</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="250" text="repos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMj-ja-J5x">
+                                <rect key="frame" x="16" y="317.5" width="343" height="341.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erK-SV-BDZ">
+                                <rect key="frame" x="16" y="278.5" width="343" height="30"/>
+                                <state key="normal" title="Fetch Repos"/>
+                                <connections>
+                                    <action selector="fetchRepos:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EVm-zm-1XZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ZEQ-mY-NEz" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="CUA-Dv-btS"/>
+                            <constraint firstItem="RMj-ja-J5x" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="HdU-Gv-Gst"/>
+                            <constraint firstItem="ZIx-VQ-UQq" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="JOz-G2-7ZM"/>
+                            <constraint firstItem="erK-SV-BDZ" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Mkt-i5-Jdh"/>
+                            <constraint firstItem="RMj-ja-J5x" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="PW7-LV-iyi"/>
+                            <constraint firstItem="ZIx-VQ-UQq" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="75" id="PfU-i2-j1Z"/>
+                            <constraint firstItem="erK-SV-BDZ" firstAttribute="top" secondItem="wGZ-B4-OJ9" secondAttribute="bottom" constant="9" id="QL7-wV-RvD"/>
+                            <constraint firstItem="RMj-ja-J5x" firstAttribute="top" secondItem="erK-SV-BDZ" secondAttribute="bottom" constant="9" id="RiR-Xr-Uch"/>
+                            <constraint firstItem="ZIx-VQ-UQq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="b8q-5f-9WU"/>
+                            <constraint firstItem="erK-SV-BDZ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="bHU-ba-Hxq"/>
+                            <constraint firstItem="wGZ-B4-OJ9" firstAttribute="top" secondItem="ZEQ-mY-NEz" secondAttribute="bottom" constant="8" id="bNk-cS-1VS"/>
+                            <constraint firstItem="ZEQ-mY-NEz" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="faW-Ps-AuQ"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="RMj-ja-J5x" secondAttribute="bottom" constant="8" id="iwi-D7-RUT"/>
+                            <constraint firstItem="ZEQ-mY-NEz" firstAttribute="top" secondItem="ZIx-VQ-UQq" secondAttribute="bottom" constant="25" id="rbz-wV-gJ5"/>
+                            <constraint firstItem="wGZ-B4-OJ9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="tjC-BB-WFY"/>
+                            <constraint firstItem="RMj-ja-J5x" firstAttribute="top" secondItem="erK-SV-BDZ" secondAttribute="bottom" constant="9" id="xkK-2X-Q47"/>
+                            <constraint firstItem="wGZ-B4-OJ9" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="zIh-iJ-2CV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="reposLabel" destination="RMj-ja-J5x" id="07c-0j-UpH"/>
+                        <outlet property="userInfosLabel" destination="wGZ-B4-OJ9" id="lvn-hT-sRZ"/>
+                        <outlet property="usernameTextField" destination="ZIx-VQ-UQq" id="rgR-9C-J8K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <customObject id="aXO-dN-tV3" customClass="UserModuleInitializer" customModule="PiOSNetworkClient_Example" customModuleProvider="target">
+                    <connections>
+                        <outlet property="UserViewController" destination="vXZ-lx-hvc" id="aE9-Ox-rG0"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="60" y="36.431784107946029"/>
+        </scene>
+    </scenes>
+</document>

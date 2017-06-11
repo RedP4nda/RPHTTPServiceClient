@@ -1,0 +1,725 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
+		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
+		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
+		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
+		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		90CC883D56942601F147CBD7 /* Pods_RPHTTPServiceClient_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E000641808C963C269DD1CFE /* Pods_RPHTTPServiceClient_Example.framework */; };
+		DB2E21CF1EB330F7001277B0 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E21CE1EB330F7001277B0 /* Repo.swift */; };
+		DB6BB53B1EAA5FE8002B9F6E /* UserConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6BB5281EAA5FE8002B9F6E /* UserConfigurator.swift */; };
+		DB6BB53C1EAA5FE8002B9F6E /* UserInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6BB5291EAA5FE8002B9F6E /* UserInitializer.swift */; };
+		DB6BB53D1EAA5FE8002B9F6E /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6BB52B1EAA5FE8002B9F6E /* UserInteractor.swift */; };
+		DB6BB53E1EAA5FE8002B9F6E /* UserInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6BB52C1EAA5FE8002B9F6E /* UserInteractorInput.swift */; };
+		DB6BB53F1EAA5FE8002B9F6E /* UserInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6BB52D1EAA5FE8002B9F6E /* UserInteractorOutput.swift */; };
+		DB6BB5401EAA5FE8002B9F6E /* UserModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6BB52F1EAA5FE8002B9F6E /* UserModuleInput.swift */; };
+		DB6BB5411EAA5FE8002B9F6E /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6BB5301EAA5FE8002B9F6E /* UserPresenter.swift */; };
+		DB6BB5421EAA5FE8002B9F6E /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6BB5321EAA5FE8002B9F6E /* UserRouter.swift */; };
+		DB6BB5431EAA5FE8002B9F6E /* UserRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6BB5331EAA5FE8002B9F6E /* UserRouterInput.swift */; };
+		DB6BB5441EAA5FE8002B9F6E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6BB5351EAA5FE8002B9F6E /* UserService.swift */; };
+		DB6BB5451EAA5FE8002B9F6E /* UserServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6BB5361EAA5FE8002B9F6E /* UserServiceAPI.swift */; };
+		DB6BB5461EAA5FE8002B9F6E /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6BB5381EAA5FE8002B9F6E /* UserViewController.swift */; };
+		DB6BB5471EAA5FE8002B9F6E /* UserViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6BB5391EAA5FE8002B9F6E /* UserViewInput.swift */; };
+		DB6BB5481EAA5FE8002B9F6E /* UserViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6BB53A1EAA5FE8002B9F6E /* UserViewOutput.swift */; };
+		DB6BB54B1EAA6287002B9F6E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6BB54A1EAA6287002B9F6E /* User.swift */; };
+		EFD0609A7E7461354738EAA8 /* Pods_RPHTTPServiceClient_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A5D5DE9379F5FC085394E1F /* Pods_RPHTTPServiceClient_Tests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = RPHTTPServiceClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		17FCB1E2EAD16C7D7C62AD30 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		2048DD7E82CCF477A49B3326 /* Pods-RPHTTPServiceClient_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RPHTTPServiceClient_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-RPHTTPServiceClient_Example/Pods-RPHTTPServiceClient_Example.release.xcconfig"; sourceTree = "<group>"; };
+		28A326A5CC384DAF93F867EA /* Pods-RPHTTPServiceClient_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RPHTTPServiceClient_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RPHTTPServiceClient_Tests/Pods-RPHTTPServiceClient_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		607FACD01AFB9204008FA782 /* RPHTTPServiceClient_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RPHTTPServiceClient_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		607FACE51AFB9204008FA782 /* RPHTTPServiceClient_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RPHTTPServiceClient_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		8223CB79FF8491B207381A01 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		9A5D5DE9379F5FC085394E1F /* Pods_RPHTTPServiceClient_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RPHTTPServiceClient_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B28F634AE57E709669D5913E /* RPHTTPServiceClient.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RPHTTPServiceClient.podspec; path = ../RPHTTPServiceClient.podspec; sourceTree = "<group>"; };
+		BEBF49833027D9445CB1A8F2 /* Pods-RPHTTPServiceClient_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RPHTTPServiceClient_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RPHTTPServiceClient_Tests/Pods-RPHTTPServiceClient_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		DB2E21CE1EB330F7001277B0 /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+		DB6BB5281EAA5FE8002B9F6E /* UserConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserConfigurator.swift; sourceTree = "<group>"; };
+		DB6BB5291EAA5FE8002B9F6E /* UserInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInitializer.swift; sourceTree = "<group>"; };
+		DB6BB52B1EAA5FE8002B9F6E /* UserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
+		DB6BB52C1EAA5FE8002B9F6E /* UserInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInteractorInput.swift; sourceTree = "<group>"; };
+		DB6BB52D1EAA5FE8002B9F6E /* UserInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInteractorOutput.swift; sourceTree = "<group>"; };
+		DB6BB52F1EAA5FE8002B9F6E /* UserModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModuleInput.swift; sourceTree = "<group>"; };
+		DB6BB5301EAA5FE8002B9F6E /* UserPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
+		DB6BB5321EAA5FE8002B9F6E /* UserRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		DB6BB5331EAA5FE8002B9F6E /* UserRouterInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRouterInput.swift; sourceTree = "<group>"; };
+		DB6BB5351EAA5FE8002B9F6E /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		DB6BB5361EAA5FE8002B9F6E /* UserServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceAPI.swift; sourceTree = "<group>"; };
+		DB6BB5381EAA5FE8002B9F6E /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		DB6BB5391EAA5FE8002B9F6E /* UserViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewInput.swift; sourceTree = "<group>"; };
+		DB6BB53A1EAA5FE8002B9F6E /* UserViewOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewOutput.swift; sourceTree = "<group>"; };
+		DB6BB54A1EAA6287002B9F6E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E000641808C963C269DD1CFE /* Pods_RPHTTPServiceClient_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RPHTTPServiceClient_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF1AA8D17829FD6119FCBF5F /* Pods-RPHTTPServiceClient_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RPHTTPServiceClient_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RPHTTPServiceClient_Example/Pods-RPHTTPServiceClient_Example.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		607FACCD1AFB9204008FA782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90CC883D56942601F147CBD7 /* Pods_RPHTTPServiceClient_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607FACE21AFB9204008FA782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFD0609A7E7461354738EAA8 /* Pods_RPHTTPServiceClient_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		607FACC71AFB9204008FA782 = {
+			isa = PBXGroup;
+			children = (
+				607FACF51AFB993E008FA782 /* Podspec Metadata */,
+				607FACD21AFB9204008FA782 /* Example for RPHTTPServiceClient */,
+				607FACE81AFB9204008FA782 /* Tests */,
+				607FACD11AFB9204008FA782 /* Products */,
+				9C48BCEEBB1BA5E5181C26B8 /* Pods */,
+				7967AE1821B13F43C7EAC93C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		607FACD11AFB9204008FA782 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD01AFB9204008FA782 /* RPHTTPServiceClient_Example.app */,
+				607FACE51AFB9204008FA782 /* RPHTTPServiceClient_Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		607FACD21AFB9204008FA782 /* Example for RPHTTPServiceClient */ = {
+			isa = PBXGroup;
+			children = (
+				DB07CF6A1EAA5A7000E55C97 /* Modules */,
+				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				607FACD31AFB9204008FA782 /* Supporting Files */,
+			);
+			name = "Example for RPHTTPServiceClient";
+			path = RPHTTPServiceClient;
+			sourceTree = "<group>";
+		};
+		607FACD31AFB9204008FA782 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD41AFB9204008FA782 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		607FACE81AFB9204008FA782 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				607FACE91AFB9204008FA782 /* Supporting Files */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		607FACE91AFB9204008FA782 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				607FACEA1AFB9204008FA782 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				B28F634AE57E709669D5913E /* RPHTTPServiceClient.podspec */,
+				17FCB1E2EAD16C7D7C62AD30 /* README.md */,
+				8223CB79FF8491B207381A01 /* LICENSE */,
+			);
+			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		7967AE1821B13F43C7EAC93C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E000641808C963C269DD1CFE /* Pods_RPHTTPServiceClient_Example.framework */,
+				9A5D5DE9379F5FC085394E1F /* Pods_RPHTTPServiceClient_Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C48BCEEBB1BA5E5181C26B8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF1AA8D17829FD6119FCBF5F /* Pods-RPHTTPServiceClient_Example.debug.xcconfig */,
+				2048DD7E82CCF477A49B3326 /* Pods-RPHTTPServiceClient_Example.release.xcconfig */,
+				28A326A5CC384DAF93F867EA /* Pods-RPHTTPServiceClient_Tests.debug.xcconfig */,
+				BEBF49833027D9445CB1A8F2 /* Pods-RPHTTPServiceClient_Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DB07CF6A1EAA5A7000E55C97 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				DB6BB5261EAA5FE8002B9F6E /* User */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		DB6BB5261EAA5FE8002B9F6E /* User */ = {
+			isa = PBXGroup;
+			children = (
+				DB6BB5491EAA627C002B9F6E /* Model */,
+				DB6BB5271EAA5FE8002B9F6E /* Configurator */,
+				DB6BB52A1EAA5FE8002B9F6E /* Interactor */,
+				DB6BB52E1EAA5FE8002B9F6E /* Presenter */,
+				DB6BB5311EAA5FE8002B9F6E /* Router */,
+				DB6BB5341EAA5FE8002B9F6E /* Service */,
+				DB6BB5371EAA5FE8002B9F6E /* View */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		DB6BB5271EAA5FE8002B9F6E /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				DB6BB5281EAA5FE8002B9F6E /* UserConfigurator.swift */,
+				DB6BB5291EAA5FE8002B9F6E /* UserInitializer.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		DB6BB52A1EAA5FE8002B9F6E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				DB6BB52B1EAA5FE8002B9F6E /* UserInteractor.swift */,
+				DB6BB52C1EAA5FE8002B9F6E /* UserInteractorInput.swift */,
+				DB6BB52D1EAA5FE8002B9F6E /* UserInteractorOutput.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		DB6BB52E1EAA5FE8002B9F6E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DB6BB52F1EAA5FE8002B9F6E /* UserModuleInput.swift */,
+				DB6BB5301EAA5FE8002B9F6E /* UserPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DB6BB5311EAA5FE8002B9F6E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				DB6BB5321EAA5FE8002B9F6E /* UserRouter.swift */,
+				DB6BB5331EAA5FE8002B9F6E /* UserRouterInput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		DB6BB5341EAA5FE8002B9F6E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DB6BB5351EAA5FE8002B9F6E /* UserService.swift */,
+				DB6BB5361EAA5FE8002B9F6E /* UserServiceAPI.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		DB6BB5371EAA5FE8002B9F6E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB6BB5381EAA5FE8002B9F6E /* UserViewController.swift */,
+				DB6BB5391EAA5FE8002B9F6E /* UserViewInput.swift */,
+				DB6BB53A1EAA5FE8002B9F6E /* UserViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB6BB5491EAA627C002B9F6E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB6BB54A1EAA6287002B9F6E /* User.swift */,
+				DB2E21CE1EB330F7001277B0 /* Repo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		607FACCF1AFB9204008FA782 /* RPHTTPServiceClient_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RPHTTPServiceClient_Example" */;
+			buildPhases = (
+				98FA5EDE7DBF0644502D0121 /* [CP] Check Pods Manifest.lock */,
+				607FACCC1AFB9204008FA782 /* Sources */,
+				607FACCD1AFB9204008FA782 /* Frameworks */,
+				607FACCE1AFB9204008FA782 /* Resources */,
+				201CD5B7BD550F5EBB4821D6 /* [CP] Embed Pods Frameworks */,
+				9DF3EB3B82A3C5EA0A967909 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RPHTTPServiceClient_Example;
+			productName = RPHTTPServiceClient;
+			productReference = 607FACD01AFB9204008FA782 /* RPHTTPServiceClient_Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+		607FACE41AFB9204008FA782 /* RPHTTPServiceClient_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RPHTTPServiceClient_Tests" */;
+			buildPhases = (
+				7B7BCD7810CC717D0677C581 /* [CP] Check Pods Manifest.lock */,
+				607FACE11AFB9204008FA782 /* Sources */,
+				607FACE21AFB9204008FA782 /* Frameworks */,
+				607FACE31AFB9204008FA782 /* Resources */,
+				355D8F090F9A4648F77A9086 /* [CP] Embed Pods Frameworks */,
+				C75569A6D9F0CEB1F105AF78 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
+			);
+			name = RPHTTPServiceClient_Tests;
+			productName = Tests;
+			productReference = 607FACE51AFB9204008FA782 /* RPHTTPServiceClient_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		607FACC81AFB9204008FA782 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = CocoaPods;
+				TargetAttributes = {
+					607FACCF1AFB9204008FA782 = {
+						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0820;
+					};
+					607FACE41AFB9204008FA782 = {
+						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0820;
+						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+				};
+			};
+			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "RPHTTPServiceClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 607FACC71AFB9204008FA782;
+			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				607FACCF1AFB9204008FA782 /* RPHTTPServiceClient_Example */,
+				607FACE41AFB9204008FA782 /* RPHTTPServiceClient_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		607FACCE1AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607FACE31AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		201CD5B7BD550F5EBB4821D6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RPHTTPServiceClient_Example/Pods-RPHTTPServiceClient_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		355D8F090F9A4648F77A9086 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RPHTTPServiceClient_Tests/Pods-RPHTTPServiceClient_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B7BCD7810CC717D0677C581 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		98FA5EDE7DBF0644502D0121 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9DF3EB3B82A3C5EA0A967909 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RPHTTPServiceClient_Example/Pods-RPHTTPServiceClient_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C75569A6D9F0CEB1F105AF78 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RPHTTPServiceClient_Tests/Pods-RPHTTPServiceClient_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		607FACCC1AFB9204008FA782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB6BB53B1EAA5FE8002B9F6E /* UserConfigurator.swift in Sources */,
+				DB6BB53C1EAA5FE8002B9F6E /* UserInitializer.swift in Sources */,
+				DB6BB53F1EAA5FE8002B9F6E /* UserInteractorOutput.swift in Sources */,
+				DB2E21CF1EB330F7001277B0 /* Repo.swift in Sources */,
+				DB6BB5461EAA5FE8002B9F6E /* UserViewController.swift in Sources */,
+				DB6BB5481EAA5FE8002B9F6E /* UserViewOutput.swift in Sources */,
+				DB6BB5431EAA5FE8002B9F6E /* UserRouterInput.swift in Sources */,
+				DB6BB54B1EAA6287002B9F6E /* User.swift in Sources */,
+				DB6BB5451EAA5FE8002B9F6E /* UserServiceAPI.swift in Sources */,
+				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				DB6BB5441EAA5FE8002B9F6E /* UserService.swift in Sources */,
+				DB6BB53E1EAA5FE8002B9F6E /* UserInteractorInput.swift in Sources */,
+				DB6BB53D1EAA5FE8002B9F6E /* UserInteractor.swift in Sources */,
+				DB6BB5421EAA5FE8002B9F6E /* UserRouter.swift in Sources */,
+				DB6BB5411EAA5FE8002B9F6E /* UserPresenter.swift in Sources */,
+				DB6BB5401EAA5FE8002B9F6E /* UserModuleInput.swift in Sources */,
+				DB6BB5471EAA5FE8002B9F6E /* UserViewInput.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607FACE11AFB9204008FA782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* RPHTTPServiceClient_Example */;
+			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				607FACDA1AFB9204008FA782 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				607FACDF1AFB9204008FA782 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		607FACED1AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		607FACEE1AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		607FACF01AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF1AA8D17829FD6119FCBF5F /* Pods-RPHTTPServiceClient_Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RPHTTPServiceClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		607FACF11AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2048DD7E82CCF477A49B3326 /* Pods-RPHTTPServiceClient_Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RPHTTPServiceClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MODULE_NAME = ExampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		607FACF31AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28A326A5CC384DAF93F867EA /* Pods-RPHTTPServiceClient_Tests.debug.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		607FACF41AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEBF49833027D9445CB1A8F2 /* Pods-RPHTTPServiceClient_Tests.release.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "RPHTTPServiceClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACED1AFB9204008FA782 /* Debug */,
+				607FACEE1AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RPHTTPServiceClient_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACF01AFB9204008FA782 /* Debug */,
+				607FACF11AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RPHTTPServiceClient_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACF31AFB9204008FA782 /* Debug */,
+				607FACF41AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 607FACC81AFB9204008FA782 /* Project object */;
+}
