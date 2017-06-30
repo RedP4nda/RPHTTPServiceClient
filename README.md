@@ -162,12 +162,14 @@ RPHTTPServiceClient can be added to your project using [CocoaPods](http://cocoap
 pod 'RPHTTPServiceClient', '~> 0.9'
 ```
 
+## Contributors
+[![MrCloud](https://avatars2.githubusercontent.com/u/486140?s=100)](https://github.com/MrCloud)
+
+## Partner
+<img src="https://github.com/MobileTribe/pandroid/raw/master/pandroid-doc/assets/partner/lm.jpg" width="100" height="100" />
 
 # Contributing
 
 Contributions are very welcome 👍😃.
 
 Before submitting any pull request, please ensure you have run the included tests and they have passed. If you are including new functionality, please write test cases for it as well.
-
-## Contributors
-[![MrCloud](https://avatars2.githubusercontent.com/u/486140?s=100)](https://github.com/MrCloud)
