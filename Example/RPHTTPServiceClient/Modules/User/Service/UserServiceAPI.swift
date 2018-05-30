@@ -35,6 +35,14 @@ enum UserServiceAPI {
 
 // MARK: - TargetType Protocol Implementation
 extension UserServiceAPI : TargetType {
+    var headers: [String : String]? {
+        switch self {
+        case .getUserInfos(_), .getUserRepos(_), .getEmojis(), .getAuthUser():
+            return nil
+        }
+
+    }
+    
 
     var baseURL: URL { return URL(string: "https://api.github.com")! }
     var path: String {
@@ -81,7 +89,7 @@ extension UserServiceAPI : TargetType {
     var task: Task {
         switch self {
         case .getUserInfos, .getUserRepos, .getEmojis, .getAuthUser():
-            return .request
+            return .requestPlain
         }
     }
 
