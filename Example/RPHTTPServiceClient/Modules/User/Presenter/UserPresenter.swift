@@ -41,6 +41,9 @@ class UserPresenter: UserModuleInput, UserViewOutput, UserInteractorOutput {
         interactor.getEmojis { (json) in
             print(json)
         }
+        interactor.getAuthUser { (user) in
+            print(user)
+        }
     }
 
 

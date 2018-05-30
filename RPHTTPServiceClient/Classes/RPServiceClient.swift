@@ -141,12 +141,12 @@ open class RPServiceClient<Target> where Target : TargetType {
             case let .success(response): // Success with status >= 400
                 do {
                     let json = try response.mapJSON()
-                    failure(RPServiceClientError.RequestError(json: json))
+                    failure(RPServiceClientError.RequestError(statusCode: response.statusCode, json: json))
                 } catch (let error) {
                     failure(RPServiceClientError.JSONParsing(cause: error))
                 }
             case let .failure(error):
-                failure(RPServiceClientError.RequestFailure(cause: error))
+                failure(RPServiceClientError.RequestFailure(statusCode: error.response?.statusCode, cause: error))
             }
         })
         return cancellable
@@ -177,7 +177,7 @@ open class RPServiceClient<Target> where Target : TargetType {
             NSLocalizedDescriptionKey: errorMsg
         ]
         let error = NSError(domain: "RPServiceClientErrorDomain", code: 1001, userInfo: userInfo)
-        let bufferError = RPServiceClientError.RequestFailure(cause: error)
+        let bufferError = RPServiceClientError.RequestFailure(statusCode: errorResult.code, cause: error)
         return bufferError
     }
 }

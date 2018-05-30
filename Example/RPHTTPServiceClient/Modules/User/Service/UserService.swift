@@ -48,12 +48,30 @@ class UserService: RPServiceClient<UserServiceAPI> {
         }
     }
     
-    func fetchEmojis(success: @escaping (Any) -> Void, error: (Swift.Error) -> Void) -> Cancellable {
+    func fetchEmojis(success: @escaping (Any) -> Void, error: (RPServiceClientError) -> Void) -> Cancellable {
         
         let target = UserServiceAPI.getEmojis()
         return super.requestJSON(target: target, success: success) { (error) in
             print(error)
         }
     }
+    
+    func fetchAuthUser(success: @escaping (User) -> Void, error: (RPServiceClientError) -> Void) -> Cancellable {
+        
+        let target = UserServiceAPI.getAuthUser()
+        return super.requestObject(target: target, success: success) { (error) in
+            switch error {
+            case .RequestError(let statusCode, let json):
+                print("Error occured with statusCode: \(statusCode), error: \(json)")
+            case .JSONParsing(let cause):
+                print(cause)
+            case .InvalidMapping(let json):
+                print(json)
+            case .RequestFailure(_, let cause):
+                print("cause: \(cause)")
+            }
+        }
+    }
+
 
 }

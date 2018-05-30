@@ -49,6 +49,15 @@ class UserInteractor: UserInteractorInput {
             print(error.localizedDescription)
         }
     }
+    
+    func getAuthUser(completion: @escaping (User) -> Void) {
+        _ = UserService().fetchAuthUser(success: { (user) in
+            completion(user)
+        }, error: { (error) in
+            print(error.localizedDescription)
+        })
+    }
+
 
 
 

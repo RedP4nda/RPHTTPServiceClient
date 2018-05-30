@@ -28,4 +28,5 @@ protocol UserInteractorInput {
     func getUser(username: String)//, completion: @escaping (User) -> Void)
     func getUserRepos(username: String, completion: @escaping ([Repo]) -> Void)
     func getEmojis(completion: @escaping (Any) -> Void)
+    func getAuthUser(completion: @escaping (User) -> Void)
 }

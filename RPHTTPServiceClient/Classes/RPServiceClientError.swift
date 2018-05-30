@@ -40,13 +40,15 @@ public enum RPServiceClientError: Swift.Error {
 
     /**
      Request error, occurring when the API is returning a statusCode of 4xx
+     - parameter cause: HTTP response status code
      - parameter json: the json wrapped error
      */
-    case RequestError(json: Any)
+    case RequestError(statusCode: Int, json: Any)
 
     /**
      Request failure, occurring when the API is returning an error
+     - parameter cause: HTTP response status code, if any
      - parameter cause: cause of the error
      */
-    case RequestFailure(cause: Swift.Error)
+    case RequestFailure(statusCode: Int?, cause: Swift.Error)
 }
