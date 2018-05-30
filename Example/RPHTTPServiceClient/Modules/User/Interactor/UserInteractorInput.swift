@@ -27,4 +27,5 @@ import Foundation
 protocol UserInteractorInput {
     func getUser(username: String)//, completion: @escaping (User) -> Void)
     func getUserRepos(username: String, completion: @escaping ([Repo]) -> Void)
+    func getEmojis(completion: @escaping (Any) -> Void)
 }

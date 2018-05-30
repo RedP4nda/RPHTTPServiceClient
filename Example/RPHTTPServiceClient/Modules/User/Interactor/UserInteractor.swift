@@ -41,6 +41,15 @@ class UserInteractor: UserInteractorInput {
             print(error.localizedDescription)
         }
     }
+    
+    func getEmojis(completion: @escaping (Any) -> Void) {
+        _ = UserService().fetchEmojis(success: { (json) in
+            completion(json)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+
 
 
 }

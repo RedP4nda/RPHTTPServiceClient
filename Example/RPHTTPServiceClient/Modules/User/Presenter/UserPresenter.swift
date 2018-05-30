@@ -38,6 +38,9 @@ class UserPresenter: UserModuleInput, UserViewOutput, UserInteractorOutput {
 
     func presentUser(user: User) {
         self.view.showUserInfos(userInfos: user.description)
+        interactor.getEmojis { (json) in
+            print(json)
+        }
     }
 
 

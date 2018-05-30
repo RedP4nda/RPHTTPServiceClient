@@ -29,6 +29,7 @@ import Moya
 enum UserServiceAPI {
     case getUserInfos(username: String)
     case getUserRepos(username: String)
+    case getEmojis()
 }
 
 // MARK: - TargetType Protocol Implementation
@@ -41,40 +42,42 @@ extension UserServiceAPI : TargetType {
             return "/users/\(username)"
         case .getUserRepos(let username):
             return "/users/\(username)/repos"
+        case .getEmojis():
+            return "/emojis"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .getUserInfos, .getUserRepos:
+        case .getUserInfos, .getUserRepos, .getEmojis:
             return .get
         }
     }
 
     var parameters: [String: Any]? {
         switch self {
-        case .getUserInfos, .getUserRepos:
+        case .getUserInfos, .getUserRepos, .getEmojis:
             return nil
         }
     }
 
     var parameterEncoding: ParameterEncoding {
         switch self {
-        case .getUserInfos, .getUserRepos:
+        case .getUserInfos, .getUserRepos, .getEmojis:
             return URLEncoding()
         }
     }
 
     var sampleData: Data {
         switch self {
-        case .getUserInfos, .getUserRepos:
+        case .getUserInfos, .getUserRepos, .getEmojis:
             return "".data(using: .utf8)!
         }
     }
 
     var task: Task {
         switch self {
-        case .getUserInfos, .getUserRepos:
+        case .getUserInfos, .getUserRepos, .getEmojis:
             return .request
         }
     }
@@ -82,7 +85,7 @@ extension UserServiceAPI : TargetType {
 
     var multipartBody: [MultipartFormData]? {
         switch self {
-        case .getUserInfos, .getUserRepos:
+        case .getUserInfos, .getUserRepos, .getEmojis:
             return nil
         }
     }

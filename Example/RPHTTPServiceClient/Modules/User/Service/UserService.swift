@@ -47,4 +47,13 @@ class UserService: RPServiceClient<UserServiceAPI> {
             print(error)
         }
     }
+    
+    func fetchEmojis(success: @escaping (Any) -> Void, error: (Swift.Error) -> Void) -> Cancellable {
+        
+        let target = UserServiceAPI.getEmojis()
+        return super.requestJSON(target: target, success: success) { (error) in
+            print(error)
+        }
+    }
+
 }

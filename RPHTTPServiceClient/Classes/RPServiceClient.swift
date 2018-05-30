@@ -128,7 +128,7 @@ open class RPServiceClient<Target> where Target : TargetType {
      - parameter failure: a closure to be executed on failure and that will give the error that caused the failure
      - returns a Cancellable instance so the pending request can be cancelled during execution
      */
-    func requestJSON(target: Target, success: @escaping (_ json: Any) -> Void, failure: @escaping (_ error: RPServiceClientError) -> Void) -> Cancellable {
+    open func requestJSON(target: Target, success: @escaping (_ json: Any) -> Void, failure: @escaping (_ error: RPServiceClientError) -> Void) -> Cancellable {
         let cancellable = self.provider.request(target, completion: { result in
             switch result {
             case let .success(response) where 200..<400 ~= response.statusCode:
