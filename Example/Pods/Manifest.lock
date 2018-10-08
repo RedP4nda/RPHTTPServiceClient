@@ -1,32 +1,28 @@
 PODS:
   - Alamofire (4.4.0)
-  - Moya (10.0.0):
-    - Moya/Core (= 10.0.0)
-  - Moya-ObjectMapper (2.5):
-    - Moya-ObjectMapper/Core (= 2.5)
-  - Moya-ObjectMapper/Core (2.5):
-    - Moya (~> 10.0.0)
-    - ObjectMapper (~> 3.0.0)
-  - Moya/Core (10.0.0):
+  - Moya (11.0.2):
+    - Moya/Core (= 11.0.2)
+  - Moya-ObjectMapper (2.7):
+    - Moya-ObjectMapper/Core (= 2.7)
+  - Moya-ObjectMapper/Core (2.7):
+    - Moya (~> 11)
+    - ObjectMapper (~> 3.3)
+  - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
-  - Nimble (7.0.1)
-  - ObjectMapper (3.0.0)
-  - Quick (1.0.0)
+  - ObjectMapper (3.3.0)
   - Result (3.2.4)
-  - RPHTTPServiceClient (0.11.0):
-    - Alamofire (= 4.4.0)
-    - Moya (= 10.0.0)
-    - Moya-ObjectMapper (= 2.5.0)
-    - ObjectMapper (= 3.0.0)
+  - RPHTTPServiceClient (0.11.2):
+    - Alamofire (= 4.4)
+    - Moya (= 11.0.2)
+    - Moya-ObjectMapper (= 2.7)
+    - ObjectMapper (= 3.3)
 
 DEPENDENCIES:
-  - Alamofire (= 4.4.0)
-  - Moya (= 10.0.0)
-  - Moya-ObjectMapper (= 2.5.0)
-  - Nimble (~> 7.0.1)
-  - ObjectMapper (= 3.0.0)
-  - Quick (~> 1.0.0)
+  - Alamofire (= 4.4)
+  - Moya (= 11.0.2)
+  - Moya-ObjectMapper (= 2.7)
+  - ObjectMapper (= 3.3)
   - RPHTTPServiceClient (from `../`)
 
 EXTERNAL SOURCES:
@@ -35,14 +31,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  Moya: adb58b0f4e58430db43cc6e2f6ebab1836501186
-  Moya-ObjectMapper: 167adf69db0298bf3a19ea05cb9a16ee117c8ef5
-  Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
-  ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
-  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
+  Moya: a725035953bc1c0eb1be505ab903984501d82440
+  Moya-ObjectMapper: 441caa307b527331fde59e2577adc632a16f1255
+  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  RPHTTPServiceClient: 85c3f10f4f932411b70ba037344e37aaa232f52d
+  RPHTTPServiceClient: 8c99f1c5795f516f6152c6b9687744723010a997
 
-PODFILE CHECKSUM: 10aa59fc49bcb22ba513cdb4e22dbb8cc61888af
+PODFILE CHECKSUM: 6f1b172be064bd97f37ba6d1f29e89a0e6d6de11
 
 COCOAPODS: 1.4.0

@@ -2,16 +2,14 @@ use_frameworks!
 
 target 'RPHTTPServiceClient_Example' do
   pod 'RPHTTPServiceClient', :path => '../'
-  pod 'Moya', '10.0.2'
-  pod 'Moya-ObjectMapper', '2.6'
-  pod 'ObjectMapper', '3.2'
+  pod 'Moya', '11.0.2'
+  pod 'Moya-ObjectMapper', '2.7'
+  pod 'ObjectMapper', '3.3'
   pod 'Alamofire', '4.4'
 
 
   target 'RPHTTPServiceClient_Tests' do
     inherit! :search_paths
 
-    pod 'Quick', '~> 1.0.0'
-    pod 'Nimble', '~> 7.0.1'
   end
 end
