@@ -1,6 +1,0 @@
-framework module RPHTTPServiceClient {
-  umbrella header "RPHTTPServiceClient-umbrella.h"
-
-  export *
-  module * { export * }
-}

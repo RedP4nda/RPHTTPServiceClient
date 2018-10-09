@@ -5,7 +5,7 @@ target 'RPHTTPServiceClient_Example' do
   pod 'Moya', '11.0.2'
   pod 'Moya-ObjectMapper', '2.7'
   pod 'ObjectMapper', '3.3'
-  pod 'Alamofire', '4.4'
+  pod 'Alamofire', '4.7'
 
 
   target 'RPHTTPServiceClient_Tests' do
