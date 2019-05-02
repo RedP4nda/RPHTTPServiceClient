@@ -24,6 +24,7 @@
 
 import RPHTTPServiceClient
 import Moya
+import Result
 
 class UserService: RPServiceClient<UserServiceAPI> {
 
@@ -40,12 +41,10 @@ class UserService: RPServiceClient<UserServiceAPI> {
         }
     }
 
-    func fetchUserRepos(username: String, success: @escaping ([Repo]) -> Void, error: (Swift.Error) -> Void) -> Cancellable {
+    func fetchUserRepos(username: String, result: @escaping (Result<[Repo], RPServiceClientError>) -> Void) -> Cancellable {
 
         let target = UserServiceAPI.getUserRepos(username: username)
-        return super.requestArray(target: target, success: success) { (error) in
-            print(error)
-        }
+        return super.requestArray(target: target, result: result)
     }
     
     func fetchEmojis(success: @escaping (Any) -> Void, error: (RPServiceClientError) -> Void) -> Cancellable {

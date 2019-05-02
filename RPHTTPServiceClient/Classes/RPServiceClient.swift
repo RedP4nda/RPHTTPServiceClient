@@ -25,6 +25,7 @@
 import Foundation
 import Moya
 import ObjectMapper
+import Result
 
 /**
  You should subclass or extend this class in order to make your API calls backed with Moya/Alamofire and returning ObjectMapper models
@@ -48,6 +49,8 @@ open class RPServiceClient<Target> where Target : TargetType {
      - parameter failure: a closure to be executed on failure and that will give the error that caused the failure
      - returns a Cancellable instance so the pending request can be cancelled during execution
      */
+    @available(*, deprecated)
+    @discardableResult
     open func requestArray<T: Mappable>(target: Target, success: @escaping (_ result: [T]) -> Void, failure: @escaping (_ error: RPServiceClientError) -> Void) -> Cancellable {
         let cancellable = self.requestJSON(target: target, success: { (json) -> Void in
             if let error = self.jsonResponseAsError(json: json) {
@@ -69,12 +72,39 @@ open class RPServiceClient<Target> where Target : TargetType {
     
     /**
      An Array Request.
+     - parameter target: your API Target
+     - parameter result: the Result Object containing the values or errors if any
+     - returns a Cancellable instance so the pending request can be cancelled during execution
+     */
+    open func requestArray<T: Mappable>(target: Target, result: @escaping (Result<[T], RPServiceClientError>) -> Void) -> Cancellable {
+        let cancellable = self.requestJSON(target: target, success: { (json) -> Void in
+            if let error = self.jsonResponseAsError(json: json) {
+                result(Result(error: error))
+                return
+            }
+            
+            if let value:[T] = Mapper<T>().mapArray(JSONObject: json) {
+                result(Result(value: value))
+            } else {
+                result(Result(error: RPServiceClientError.InvalidMapping(json: json)))
+            }
+        }, failure: { (error) -> Void in
+            result(Result(error: error))
+        })
+        
+        return cancellable
+    }
+
+    /**
+     An Array Request.
      - parameter key: the key for the array to be mapped
      - parameter target: your API Target
      - parameter success: a success closure to be executed when the request is successfull and that will initialize a result array of Mappable objects of the given type
      - parameter failure: a closure to be executed on failure and that will give the error that caused the failure
      - returns a Cancellable instance so the pending request can be cancelled during execution
      */
+    @available(*, deprecated)
+    @discardableResult
     open func requestArray<T: Mappable>(key: String, target: Target, success: @escaping (_ result: [T]) -> Void, failure: @escaping (_ error: RPServiceClientError) -> Void) -> Cancellable {
         let cancellable = self.requestJSON(target: target, success: { (json) -> Void in
             if let error = self.jsonResponseAsError(json: json) {
@@ -94,6 +124,31 @@ open class RPServiceClient<Target> where Target : TargetType {
         return cancellable
     }
     
+    /**
+     An Array Request.
+     - parameter key: the key for the array to be mapped
+     - parameter target: your API Target
+     - parameter result: the Result Object containing the values or errors if any
+     - returns a Cancellable instance so the pending request can be cancelled during execution
+     */
+    open func requestArray<T: Mappable>(key: String, target: Target, result: @escaping (Result<[T], RPServiceClientError>) -> Void) -> Cancellable {
+        let cancellable = self.requestJSON(target: target, success: { (json) -> Void in
+            if let error = self.jsonResponseAsError(json: json) {
+                result(Result(error:error))
+                return
+            }
+            
+            if let jsonRoot = json as? [String: Any], let value:[T] = Mapper<T>().mapArray(JSONObject: jsonRoot[key]) {
+                result(Result(value: value))
+            } else {
+                result(Result(error: RPServiceClientError.InvalidMapping(json: json)))
+            }
+        }, failure: { (error) -> Void in
+            result(Result(error: error))
+        })
+        
+        return cancellable
+    }
     
     /**
      An Object Request.
@@ -102,6 +157,8 @@ open class RPServiceClient<Target> where Target : TargetType {
      - parameter failure: a closure to be executed on failure and that will give the error that caused the failure
      - returns a Cancellable instance so the pending request can be cancelled during execution
      */
+    @available(*, deprecated)
+    @discardableResult
     open func requestObject<T: Mappable>(target: Target, success: @escaping (_ result: T) -> Void, failure: @escaping (_ error: RPServiceClientError) -> Void) -> Cancellable {
         let cancellable = self.requestJSON(target: target, success: { (json) -> Void in
             if let error = self.jsonResponseAsError(json: json) {
@@ -122,12 +179,40 @@ open class RPServiceClient<Target> where Target : TargetType {
     }
     
     /**
+     An Object Request.
+     - parameter target: your API Target
+     - parameter result: the Result Object containing the values or errors if any
+     - returns a Cancellable instance so the pending request can be cancelled during execution
+     */
+    @discardableResult
+    open func requestObject<T: Mappable>(target: Target, result: @escaping (Result<T, RPServiceClientError>) -> Void) -> Cancellable {
+        let cancellable = self.requestJSON(target: target, success: { (json) -> Void in
+            if let error = self.jsonResponseAsError(json: json) {
+                result(Result(error: error))
+                return
+            }
+            
+            if let value = Mapper<T>().map(JSONObject: json) {
+                result(Result(value: value))
+            } else {
+                result(Result(error: RPServiceClientError.InvalidMapping(json: json)))
+            }
+        }, failure: { (error) -> Void in
+            result(Result(error: error))
+        })
+        
+        return cancellable
+    }
+    
+    /**
      A JSON Request.
      - parameter target: your API Target
      - parameter success: a success closure to be executed when the request is successfull and that will return Any json result
      - parameter failure: a closure to be executed on failure and that will give the error that caused the failure
      - returns a Cancellable instance so the pending request can be cancelled during execution
      */
+    @available(*, deprecated)
+    @discardableResult
     open func requestJSON(target: Target, success: @escaping (_ json: Any) -> Void, failure: @escaping (_ error: RPServiceClientError) -> Void) -> Cancellable {
         let cancellable = self.provider.request(target, completion: { result in
             switch result {
@@ -151,6 +236,38 @@ open class RPServiceClient<Target> where Target : TargetType {
         })
         return cancellable
     }
+    
+    /**
+     A JSON Request.
+     - parameter target: your API Target
+     - parameter result: the Result Object containing the values or errors if any
+     - returns a Cancellable instance so the pending request can be cancelled during execution
+     */
+    @discardableResult
+    open func requestJSON(target: Target, result: @escaping (Result<Any, RPServiceClientError>) -> Void) -> Cancellable {
+        let cancellable = self.provider.request(target, completion: { moyaResult in
+            switch moyaResult {
+            case let .success(response) where 200..<400 ~= response.statusCode:
+                do {
+                    let json = try response.mapJSON()
+                    result(Result(value: json))
+                } catch (let error) {
+                    result(Result(error: RPServiceClientError.JSONParsing(cause: error)))
+                }
+            case let .success(response): // Success with status >= 400
+                do {
+                    let json = try response.mapJSON()
+                    result(Result(error: RPServiceClientError.RequestError(statusCode: response.statusCode, json: json)))
+                } catch (let error) {
+                    result(Result(error: RPServiceClientError.JSONParsing(cause: error)))
+                }
+            case let .failure(error):
+                result(Result(error: RPServiceClientError.RequestFailure(statusCode: error.response?.statusCode, cause: error)))
+            }
+        })
+        return cancellable
+    }
+
     
     /**
      Transforms json containing an error message into an Error.

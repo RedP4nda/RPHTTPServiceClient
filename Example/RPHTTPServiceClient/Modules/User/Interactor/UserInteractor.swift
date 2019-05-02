@@ -24,21 +24,24 @@
 
 class UserInteractor: UserInteractorInput {
     weak var output: UserInteractorOutput!
-
-
+    
+    
     func getUser(username: String) {
-       _ = UserService().fetchUser(username: username, success: { (user) in
+        _ = UserService().fetchUser(username: username, success: { (user) in
             self.output.presentUser(user: user)
         }) { (error) in
             print(error.localizedDescription)
         }
     }
-
+    
     func getUserRepos(username: String, completion: @escaping ([Repo]) -> Void) {
-       _ = UserService().fetchUserRepos(username: username, success: { (repos) in
-            completion(repos)
-        }) { (error) in
-            print(error.localizedDescription)
+        _ = UserService().fetchUserRepos(username: username) { result in
+            switch result {
+            case let .success(repos):
+                completion(repos)
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
         }
     }
     
@@ -57,8 +60,4 @@ class UserInteractor: UserInteractorInput {
             print(error.localizedDescription)
         })
     }
-
-
-
-
 }
