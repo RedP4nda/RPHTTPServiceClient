@@ -68,6 +68,8 @@ class UserService: RPServiceClient<UserServiceAPI> {
                 print(json)
             case .RequestFailure(_, let cause):
                 print("cause: \(cause)")
+            case .EmptyResponse:
+                print("Empty response - No Content")
             }
         }
     }

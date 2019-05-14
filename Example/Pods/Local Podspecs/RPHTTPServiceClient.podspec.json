@@ -1,0 +1,40 @@
+{
+  "name": "RPHTTPServiceClient",
+  "version": "0.12.0",
+  "summary": "RPHTTPServiceClient is a Type-safe JSON/HTTP client for iOS.",
+  "description": "PiOSNetworkClient enables anyone to simplify the way to consume webservices/APIs and map automagically the results to ObjectMapper's Mappable object instances",
+  "homepage": "https://github.com/RedP4nda/RPHTTPServiceClient",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "MrCloud": "florianp37@me.com"
+  },
+  "source": {
+    "git": "https://github.com/RedP4nda/RPHTTPServiceClient.git",
+    "tag": "0.12.0"
+  },
+  "social_media_url": "https://twitter.com/Florian_MrCloud",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "RPHTTPServiceClient/Classes/**/*",
+  "dependencies": {
+    "Moya": [
+      "12.0.1"
+    ],
+    "Moya-ObjectMapper": [
+      "2.8"
+    ],
+    "ObjectMapper": [
+      "3.4.2"
+    ],
+    "Alamofire": [
+      "4.8.1"
+    ],
+    "Result": [
+      "4.1.0"
+    ]
+  }
+}

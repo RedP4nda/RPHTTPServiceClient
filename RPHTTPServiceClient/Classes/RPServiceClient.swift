@@ -94,7 +94,7 @@ open class RPServiceClient<Target> where Target : TargetType {
         
         return cancellable
     }
-
+    
     /**
      An Array Request.
      - parameter key: the key for the array to be mapped
@@ -217,6 +217,11 @@ open class RPServiceClient<Target> where Target : TargetType {
         let cancellable = self.provider.request(target, completion: { result in
             switch result {
             case let .success(response) where 200..<400 ~= response.statusCode:
+                
+                if response.statusCode == 204 || response.data.isEmpty {
+                    failure(RPServiceClientError.EmptyResponse())
+                }
+                
                 do {
                     let json = try response.mapJSON()
                     success(json)
@@ -248,6 +253,11 @@ open class RPServiceClient<Target> where Target : TargetType {
         let cancellable = self.provider.request(target, completion: { moyaResult in
             switch moyaResult {
             case let .success(response) where 200..<400 ~= response.statusCode:
+                
+                if response.statusCode == 204 || response.data.isEmpty {
+                    result(Result(error: RPServiceClientError.EmptyResponse()))
+                }
+                
                 do {
                     let json = try response.mapJSON()
                     result(Result(value: json))
@@ -267,7 +277,39 @@ open class RPServiceClient<Target> where Target : TargetType {
         })
         return cancellable
     }
+    
+    /**
+     A simple Request.
+     - parameter target: your API Target
+     - parameter result: the Result Object containing the values or errors if any
+     - returns a Cancellable instance so the pending request can be cancelled during execution
+     */
+    @discardableResult
+    open func request(target: Target, result: @escaping (Result<Data, RPServiceClientError>) -> Void) -> Cancellable {
+        let cancellable = self.provider.request(target, completion: { moyaResult in
+            switch moyaResult {
+            case let .success(response) where 200..<400 ~= response.statusCode:
 
+                if response.statusCode == 204 || response.data.isEmpty {
+                    result(Result(error: RPServiceClientError.EmptyResponse()))
+                }
+
+                result(Result(value: response.data))
+            case let .success(response): // Success with status >= 400
+                do {
+                    let json = try response.mapJSON()
+                    result(Result(error: RPServiceClientError.RequestError(statusCode: response.statusCode, json: json)))
+                } catch (let error) {
+                    result(Result(error: RPServiceClientError.JSONParsing(cause: error)))
+                }
+            case let .failure(error):
+                result(Result(error: RPServiceClientError.RequestFailure(statusCode: error.response?.statusCode, cause: error)))
+            }
+        })
+        return cancellable
+    }
+    
+    
     
     /**
      Transforms json containing an error message into an Error.

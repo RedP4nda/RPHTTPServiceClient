@@ -33,6 +33,11 @@ public enum RPServiceClientError: Swift.Error {
     case JSONParsing(cause: Swift.Error)
 
     /**
+     Cannot do anything since no content is provided.
+     */
+    case EmptyResponse()
+    
+    /**
      Invalid Mapping error.
      - parameter json: the json the mapping intended to use
      */
