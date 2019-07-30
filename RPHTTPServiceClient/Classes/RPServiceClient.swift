@@ -292,9 +292,9 @@ open class RPServiceClient<Target> where Target : TargetType {
 
                 if response.statusCode == 204 || response.data.isEmpty {
                     result(Result(error: RPServiceClientError.EmptyResponse()))
+                } else {
+                    result(Result(value: response.data))
                 }
-
-                result(Result(value: response.data))
             case let .success(response): // Success with status >= 400
                 do {
                     let json = try response.mapJSON()
