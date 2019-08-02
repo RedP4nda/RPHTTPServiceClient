@@ -191,11 +191,15 @@ open class RPServiceClient<Target> where Target : TargetType {
                 result(Result(error: error))
                 return
             }
-            
-            if let value = Mapper<T>().map(JSONObject: json) {
-                result(Result(value: value))
-            } else {
-                result(Result(error: RPServiceClientError.InvalidMapping(json: json)))
+            DispatchQueue.global(qos: .utility).async {
+                let value = Mapper<T>().map(JSONObject: json)
+                DispatchQueue.main.async {
+                    if value != nil {
+                        result(Result(value: value!))
+                    } else {
+                        result(Result(error: RPServiceClientError.InvalidMapping(json: json)))
+                    }
+                }
             }
         }, failure: { (error) -> Void in
             result(Result(error: error))
