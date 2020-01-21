@@ -223,7 +223,7 @@ open class RPServiceClient<Target> where Target : TargetType {
             case let .success(response) where 200..<400 ~= response.statusCode:
                 
                 if response.statusCode == 204 || response.data.isEmpty {
-                    failure(RPServiceClientError.EmptyResponse())
+                    failure(RPServiceClientError.EmptyResponse)
                 }
                 
                 do {
@@ -259,7 +259,7 @@ open class RPServiceClient<Target> where Target : TargetType {
             case let .success(response) where 200..<400 ~= response.statusCode:
                 
                 if response.statusCode == 204 || response.data.isEmpty {
-                    result(Result(error: RPServiceClientError.EmptyResponse()))
+                    result(Result(error: RPServiceClientError.EmptyResponse))
                 }
                 
                 do {
@@ -295,7 +295,7 @@ open class RPServiceClient<Target> where Target : TargetType {
             case let .success(response) where 200..<400 ~= response.statusCode:
 
                 if response.statusCode == 204 || response.data.isEmpty {
-                    result(Result(error: RPServiceClientError.EmptyResponse()))
+                    result(Result(error: RPServiceClientError.EmptyResponse))
                 } else {
                     result(Result(value: response.data))
                 }

@@ -29,15 +29,15 @@ import Moya
 enum UserServiceAPI {
     case getUserInfos(username: String)
     case getUserRepos(username: String)
-    case getEmojis()
-    case getAuthUser()
+    case getEmojis
+    case getAuthUser
 }
 
 // MARK: - TargetType Protocol Implementation
 extension UserServiceAPI : TargetType {
     var headers: [String : String]? {
         switch self {
-        case .getUserInfos(_), .getUserRepos(_), .getEmojis(), .getAuthUser():
+        case .getUserInfos(_), .getUserRepos(_), .getEmojis, .getAuthUser:
             return nil
         }
 
@@ -51,44 +51,44 @@ extension UserServiceAPI : TargetType {
             return "/users/\(username)"
         case .getUserRepos(let username):
             return "/users/\(username)/repos"
-        case .getEmojis():
+        case .getEmojis:
             return "/emojis"
-        case .getAuthUser():
+        case .getAuthUser:
             return "/user"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .getUserInfos, .getUserRepos, .getEmojis, .getAuthUser():
+        case .getUserInfos, .getUserRepos, .getEmojis, .getAuthUser:
             return .get
         }
     }
 
     var parameters: [String: Any]? {
         switch self {
-        case .getUserInfos, .getUserRepos, .getEmojis, .getAuthUser():
+        case .getUserInfos, .getUserRepos, .getEmojis, .getAuthUser:
             return nil
         }
     }
 
     var parameterEncoding: ParameterEncoding {
         switch self {
-        case .getUserInfos, .getUserRepos, .getEmojis, .getAuthUser():
+        case .getUserInfos, .getUserRepos, .getEmojis, .getAuthUser:
             return URLEncoding()
         }
     }
 
     var sampleData: Data {
         switch self {
-        case .getUserInfos, .getUserRepos, .getEmojis, .getAuthUser():
+        case .getUserInfos, .getUserRepos, .getEmojis, .getAuthUser:
             return "".data(using: .utf8)!
         }
     }
 
     var task: Task {
         switch self {
-        case .getUserInfos, .getUserRepos, .getEmojis, .getAuthUser():
+        case .getUserInfos, .getUserRepos, .getEmojis, .getAuthUser:
             return .requestPlain
         }
     }
@@ -96,7 +96,7 @@ extension UserServiceAPI : TargetType {
 
     var multipartBody: [MultipartFormData]? {
         switch self {
-        case .getUserInfos, .getUserRepos, .getEmojis, .getAuthUser():
+        case .getUserInfos, .getUserRepos, .getEmojis, .getAuthUser:
             return nil
         }
     }

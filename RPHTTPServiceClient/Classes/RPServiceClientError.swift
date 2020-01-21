@@ -35,7 +35,7 @@ public enum RPServiceClientError: Swift.Error {
     /**
      Cannot do anything since no content is provided.
      */
-    case EmptyResponse()
+    case EmptyResponse
     
     /**
      Invalid Mapping error.

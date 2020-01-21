@@ -49,7 +49,7 @@ class UserService: RPServiceClient<UserServiceAPI> {
     
     func fetchEmojis(success: @escaping (Any) -> Void, error: (RPServiceClientError) -> Void) -> Cancellable {
         
-        let target = UserServiceAPI.getEmojis()
+        let target = UserServiceAPI.getEmojis
         return super.requestJSON(target: target, success: success) { (error) in
             print(error)
         }
@@ -57,7 +57,7 @@ class UserService: RPServiceClient<UserServiceAPI> {
     
     func fetchAuthUser(success: @escaping (User) -> Void, error: (RPServiceClientError) -> Void) -> Cancellable {
         
-        let target = UserServiceAPI.getAuthUser()
+        let target = UserServiceAPI.getAuthUser
         return super.requestObject(target: target, success: success) { (error) in
             switch error {
             case .RequestError(let statusCode, let json):
