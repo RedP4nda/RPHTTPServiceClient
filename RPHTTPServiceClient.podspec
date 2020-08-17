@@ -20,6 +20,5 @@ PiOSNetworkClient enables anyone to simplify the way to consume webservices/APIs
     s.dependency 'Moya-ObjectMapper', '2.9'
     s.dependency 'ObjectMapper', '3.5.1'
     s.dependency 'Alamofire', '5.0.0'
-    s.dependency 'Result', '4.1.0'
 end
 

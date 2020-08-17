@@ -24,7 +24,6 @@
 
 import RPHTTPServiceClient
 import Moya
-import Result
 
 class UserService: RPServiceClient<UserServiceAPI> {
 

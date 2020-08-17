@@ -25,7 +25,6 @@
 import Foundation
 import Moya
 import ObjectMapper
-import Result
 
 /**
  You should subclass or extend this class in order to make your API calls backed with Moya/Alamofire and returning ObjectMapper models
@@ -79,17 +78,17 @@ open class RPServiceClient<Target> where Target : TargetType {
     open func requestArray<T: Mappable>(target: Target, result: @escaping (Result<[T], RPServiceClientError>) -> Void) -> Cancellable {
         let cancellable = self.requestJSON(target: target, success: { (json) -> Void in
             if let error = self.jsonResponseAsError(json: json) {
-                result(Result(error: error))
+                result(.failure(error))
                 return
             }
             
             if let value:[T] = Mapper<T>().mapArray(JSONObject: json) {
-                result(Result(value: value))
+                result(.success(value))
             } else {
-                result(Result(error: RPServiceClientError.InvalidMapping(json: json)))
+                result(.failure(RPServiceClientError.InvalidMapping(json: json)))
             }
         }, failure: { (error) -> Void in
-            result(Result(error: error))
+            result(.failure(error))
         })
         
         return cancellable
@@ -134,17 +133,17 @@ open class RPServiceClient<Target> where Target : TargetType {
     open func requestArray<T: Mappable>(key: String, target: Target, result: @escaping (Result<[T], RPServiceClientError>) -> Void) -> Cancellable {
         let cancellable = self.requestJSON(target: target, success: { (json) -> Void in
             if let error = self.jsonResponseAsError(json: json) {
-                result(Result(error:error))
+                result(.failure(error))
                 return
             }
             
             if let jsonRoot = json as? [String: Any], let value:[T] = Mapper<T>().mapArray(JSONObject: jsonRoot[key]) {
-                result(Result(value: value))
+                result(.success(value))
             } else {
-                result(Result(error: RPServiceClientError.InvalidMapping(json: json)))
+                result(.failure(RPServiceClientError.InvalidMapping(json: json)))
             }
         }, failure: { (error) -> Void in
-            result(Result(error: error))
+            result(.failure(error))
         })
         
         return cancellable
@@ -188,21 +187,21 @@ open class RPServiceClient<Target> where Target : TargetType {
     open func requestObject<T: Mappable>(target: Target, result: @escaping (Result<T, RPServiceClientError>) -> Void) -> Cancellable {
         let cancellable = self.requestJSON(target: target, success: { (json) -> Void in
             if let error = self.jsonResponseAsError(json: json) {
-                result(Result(error: error))
+                result(.failure(error))
                 return
             }
             DispatchQueue.global(qos: .utility).async {
                 let value = Mapper<T>().map(JSONObject: json)
                 DispatchQueue.main.async {
                     if value != nil {
-                        result(Result(value: value!))
+                        result(.success(value!))
                     } else {
-                        result(Result(error: RPServiceClientError.InvalidMapping(json: json)))
+                        result(.failure(RPServiceClientError.InvalidMapping(json: json)))
                     }
                 }
             }
         }, failure: { (error) -> Void in
-            result(Result(error: error))
+            result(.failure(error))
         })
         
         return cancellable
@@ -259,24 +258,24 @@ open class RPServiceClient<Target> where Target : TargetType {
             case let .success(response) where 200..<400 ~= response.statusCode:
                 
                 if response.statusCode == 204 || response.data.isEmpty {
-                    result(Result(error: RPServiceClientError.EmptyResponse))
+                    result(.success(RPServiceClientError.EmptyResponse))
                 }
                 
                 do {
                     let json = try response.mapJSON()
-                    result(Result(value: json))
+                    result(.success(json))
                 } catch (let error) {
-                    result(Result(error: RPServiceClientError.JSONParsing(cause: error)))
+                    result(.failure(RPServiceClientError.JSONParsing(cause: error)))
                 }
             case let .success(response): // Success with status >= 400
                 do {
                     let json = try response.mapJSON()
-                    result(Result(error: RPServiceClientError.RequestError(statusCode: response.statusCode, json: json)))
+                    result(.failure(RPServiceClientError.RequestError(statusCode: response.statusCode, json: json)))
                 } catch (let error) {
-                    result(Result(error: RPServiceClientError.JSONParsing(cause: error)))
+                    result(.failure(RPServiceClientError.JSONParsing(cause: error)))
                 }
             case let .failure(error):
-                result(Result(error: RPServiceClientError.RequestFailure(statusCode: error.response?.statusCode, cause: error)))
+                result(.failure(RPServiceClientError.RequestFailure(statusCode: error.response?.statusCode, cause: error)))
             }
         })
         return cancellable
@@ -295,19 +294,19 @@ open class RPServiceClient<Target> where Target : TargetType {
             case let .success(response) where 200..<400 ~= response.statusCode:
 
                 if response.statusCode == 204 || response.data.isEmpty {
-                    result(Result(error: RPServiceClientError.EmptyResponse))
+                    result(.failure(RPServiceClientError.EmptyResponse))
                 } else {
-                    result(Result(value: response.data))
+                    result(.success(response.data))
                 }
             case let .success(response): // Success with status >= 400
                 do {
                     let json = try response.mapJSON()
-                    result(Result(error: RPServiceClientError.RequestError(statusCode: response.statusCode, json: json)))
+                    result(.failure(RPServiceClientError.RequestError(statusCode: response.statusCode, json: json)))
                 } catch (let error) {
-                    result(Result(error: RPServiceClientError.JSONParsing(cause: error)))
+                    result(.failure(RPServiceClientError.JSONParsing(cause: error)))
                 }
             case let .failure(error):
-                result(Result(error: RPServiceClientError.RequestFailure(statusCode: error.response?.statusCode, cause: error)))
+                result(.failure(RPServiceClientError.RequestFailure(statusCode: error.response?.statusCode, cause: error)))
             }
         })
         return cancellable
