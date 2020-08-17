@@ -1,7 +1,7 @@
 RPHTTPServiceClient
 ============
 
-[![Build Status](https://travis-ci.org/RedP4nda/RPHTTPServiceClient.svg?branch=master)](https://travis-ci.org/RedP4nda/RPHTTPServiceClient)
+[![Build Status](https://travis-ci.org/RedP4nda/RPHTTPServiceClient.svg?branch=main)](https://travis-ci.org/RedP4nda/RPHTTPServiceClient)
 [![Twitter](https://img.shields.io/badge/twitter-@Florian_MrCloud-blue.svg?style=flat)](http://twitter.com/Florian_MrCloud)
 
 # Disclaimer:
