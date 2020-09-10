@@ -1,15 +1,20 @@
+source 'https://cdn.cocoapods.org/'
+
+platform :ios, '11.0'
 use_frameworks!
 
-target 'RPHTTPServiceClient_Example' do
+def common_pods
   pod 'RPHTTPServiceClient', :path => '../'
   pod 'Moya', '14.0.0'
   pod 'Moya-ObjectMapper', '2.9'
   pod 'ObjectMapper', '3.5.1'
-  pod 'Alamofire', '5.0.0'
+  pod 'Alamofire', '~> 5.2.2'
+end
 
+target 'RPHTTPServiceClient_Example' do
+  common_pods
+end
 
-  target 'RPHTTPServiceClient_Tests' do
-    inherit! :search_paths
-
-  end
+target 'RPHTTPServiceClient_Tests' do
+  common_pods
 end

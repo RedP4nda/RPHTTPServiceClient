@@ -2,8 +2,13 @@
 # * http://www.objc.io/issue-6/travis-ci.html
 # * https://github.com/supermarin/xcpretty#usage
 
-osx_image: xcode11.3
+osx_image: xcode11.7  
 language: swift
+podfile: Example/Podfile
+
+before_script:
+  - gem install cocoapods
+  - pod install --project-directory=Example
 script:
-- set -o pipefail && xcodebuild build -workspace Example/RPHTTPServiceClient.xcworkspace -scheme "RPHTTPServiceClient-Example" -configuration "Debug" -destination "platform=iOS Simulator,name=iPhone 8,OS=11.3" ONLY_ACTIVE_ARCH=NO | xcpretty
+- set -o pipefail && xcodebuild build -workspace Example/RPHTTPServiceClient.xcworkspace -scheme "RPHTTPServiceClient-Example" -configuration "Debug" -destination "platform=iOS Simulator,name=iPhone 8,OS=13.7" ONLY_ACTIVE_ARCH=NO | xcpretty
 - pod lib lint --allow-warnings

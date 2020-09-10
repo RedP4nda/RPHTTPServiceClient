@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.dependency 'Moya', '14.0.0'
   s.dependency 'Moya-ObjectMapper', '2.9'
   s.dependency 'ObjectMapper', '3.5.1'
-  s.dependency 'Alamofire', '5.0.0'
+  s.dependency 'Alamofire', '~> 5.2.2'
     
 end
 
