@@ -9,18 +9,18 @@ PODS:
     - ObjectMapper
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
-  - ObjectMapper (3.5.1)
-  - RPHTTPServiceClient (2.0.0):
-    - Alamofire (~> 5.2.2)
+  - ObjectMapper (4.2.0)
+  - RPHTTPServiceClient (2.1.0):
+    - Alamofire (= 5.2.2)
     - Moya (= 14.0.0)
     - Moya-ObjectMapper (= 2.9)
-    - ObjectMapper (= 3.5.1)
+    - ObjectMapper (= 4.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2.2)
   - Moya (= 14.0.0)
   - Moya-ObjectMapper (= 2.9)
-  - ObjectMapper (= 3.5.1)
+  - ObjectMapper (~> 4.2.0)
   - RPHTTPServiceClient (from `../`)
 
 SPEC REPOS:
@@ -38,9 +38,9 @@ SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   Moya-ObjectMapper: 967a99d9ea3aa9c93ddbe112aeca3667f53bfe93
-  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
-  RPHTTPServiceClient: ad8672638548a35375d668a043b3791029ec4dbc
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  RPHTTPServiceClient: c16addc7b9e5c693d3a5530267bf964c05c8ab00
 
-PODFILE CHECKSUM: 81c8c4d71aa5789a61803428b479e983907d2020
+PODFILE CHECKSUM: 062b80d154b58a85760f2504786554187cbeab52
 
 COCOAPODS: 1.10.0.beta.2
