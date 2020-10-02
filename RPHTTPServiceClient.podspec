@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RPHTTPServiceClient'
-  s.version          = '2.1.0'
+  s.version          = '2.1.1'
   s.summary          = 'RPHTTPServiceClient is a Type-safe JSON/HTTP client for iOS.'
   s.description      = <<-DESC
   RPHTTPServiceClient enables anyone to simplify the way to consume webservices/APIs and map automagically the results to ObjectMapper\'s Mappable object instances
@@ -20,8 +20,8 @@ Pod::Spec.new do |s|
 
   s.dependency 'Moya', '14.0.0'
   s.dependency 'Moya-ObjectMapper', '2.9'
-  s.dependency 'ObjectMapper', '3.5.1'
-  s.dependency 'Alamofire', '~> 5.2.2'
+  s.dependency 'ObjectMapper', '4.2.0'
+  s.dependency 'Alamofire', '5.2.2'
     
 end
 
