@@ -262,6 +262,7 @@ open class RPServiceClient<Target> where Target : TargetType {
                 
                 if response.statusCode == 204 || response.data.isEmpty {
                     result(.success(RPServiceClientError.EmptyResponse))
+                    return
                 }
                 
                 do {
