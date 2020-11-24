@@ -185,24 +185,27 @@ open class RPServiceClient<Target> where Target : TargetType {
      */
     @discardableResult
     open func requestObject<T: Mappable>(target: Target, result: @escaping (Result<T, RPServiceClientError>) -> Void) -> Cancellable {
-        let cancellable = self.requestJSON(target: target, success: { (json) -> Void in
-            if let error = self.jsonResponseAsError(json: json) {
-                result(.failure(error))
-                return
-            }
-            DispatchQueue.global(qos: .utility).async {
-                let value = Mapper<T>().map(JSONObject: json)
-                DispatchQueue.main.async {
-                    if value != nil {
-                        result(.success(value!))
-                    } else {
-                        result(.failure(RPServiceClientError.InvalidMapping(json: json)))
+        let cancellable = self.requestJSON(target: target) { res in
+            switch res {
+            case .success(let json):
+                if let error = self.jsonResponseAsError(json: json) {
+                    result(.failure(error))
+                    return
+                }
+                DispatchQueue.global(qos: .utility).async {
+                    let value = Mapper<T>().map(JSONObject: json)
+                    DispatchQueue.main.async {
+                        if value != nil {
+                            result(.success(value!))
+                        } else {
+                            result(.failure(RPServiceClientError.InvalidMapping(json: json)))
+                        }
                     }
                 }
+            case .failure(let error):
+                result(.failure(error))
             }
-        }, failure: { (error) -> Void in
-            result(.failure(error))
-        })
+        }
         
         return cancellable
     }
@@ -259,6 +262,7 @@ open class RPServiceClient<Target> where Target : TargetType {
                 
                 if response.statusCode == 204 || response.data.isEmpty {
                     result(.success(RPServiceClientError.EmptyResponse))
+                    return
                 }
                 
                 do {
