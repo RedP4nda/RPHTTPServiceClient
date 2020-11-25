@@ -76,20 +76,23 @@ open class RPServiceClient<Target> where Target : TargetType {
      - returns a Cancellable instance so the pending request can be cancelled during execution
      */
     open func requestArray<T: Mappable>(target: Target, result: @escaping (Result<[T], RPServiceClientError>) -> Void) -> Cancellable {
-        let cancellable = self.requestJSON(target: target, success: { (json) -> Void in
-            if let error = self.jsonResponseAsError(json: json) {
+        let cancellable = self.requestJSON(target: target) { res in
+            switch res {
+            case .success(let json):
+                if let error = self.jsonResponseAsError(json: json) {
+                    result(.failure(error))
+                    return
+                }
+                
+                if let value:[T] = Mapper<T>().mapArray(JSONObject: json) {
+                    result(.success(value))
+                } else {
+                    result(.failure(RPServiceClientError.InvalidMapping(json: json)))
+                }
+            case .failure(let error):
                 result(.failure(error))
-                return
             }
-            
-            if let value:[T] = Mapper<T>().mapArray(JSONObject: json) {
-                result(.success(value))
-            } else {
-                result(.failure(RPServiceClientError.InvalidMapping(json: json)))
-            }
-        }, failure: { (error) -> Void in
-            result(.failure(error))
-        })
+        }
         
         return cancellable
     }
@@ -131,20 +134,23 @@ open class RPServiceClient<Target> where Target : TargetType {
      - returns a Cancellable instance so the pending request can be cancelled during execution
      */
     open func requestArray<T: Mappable>(key: String, target: Target, result: @escaping (Result<[T], RPServiceClientError>) -> Void) -> Cancellable {
-        let cancellable = self.requestJSON(target: target, success: { (json) -> Void in
-            if let error = self.jsonResponseAsError(json: json) {
+        let cancellable = self.requestJSON(target: target) { res in
+            switch res {
+            case .success(let json):
+                if let error = self.jsonResponseAsError(json: json) {
+                    result(.failure(error))
+                    return
+                }
+                
+                if let jsonRoot = json as? [String: Any], let value:[T] = Mapper<T>().mapArray(JSONObject: jsonRoot[key]) {
+                    result(.success(value))
+                } else {
+                    result(.failure(RPServiceClientError.InvalidMapping(json: json)))
+                }
+            case .failure(let error):
                 result(.failure(error))
-                return
             }
-            
-            if let jsonRoot = json as? [String: Any], let value:[T] = Mapper<T>().mapArray(JSONObject: jsonRoot[key]) {
-                result(.success(value))
-            } else {
-                result(.failure(RPServiceClientError.InvalidMapping(json: json)))
-            }
-        }, failure: { (error) -> Void in
-            result(.failure(error))
-        })
+        }
         
         return cancellable
     }
