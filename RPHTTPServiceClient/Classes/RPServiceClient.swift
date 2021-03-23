@@ -51,8 +51,8 @@ open class RPServiceClient<Target> where Target : TargetType {
     @available(*, deprecated)
     @discardableResult
     open func requestArray<T: Mappable>(target: Target, success: @escaping (_ result: [T]) -> Void, failure: @escaping (_ error: RPServiceClientError) -> Void) -> Cancellable {
-        let cancellable = self.requestJSON(target: target, success: { (json) -> Void in
-            if let error = self.jsonResponseAsError(json: json) {
+        let cancellable = self.requestJSON(target: target, success: { [weak self] (json) -> Void in
+            if let error = self?.jsonResponseAsError(json: json) {
                 failure(error)
                 return
             }
